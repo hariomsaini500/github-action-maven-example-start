@@ -29,4 +29,4 @@ jobs:
         JFROG_PASSWORD: ${{ secrets.JFROG_PASSWORD }}
       run: |
         mvn clean install
-        mvn deploy -Dmaven.deploy.skip=true -Dmaven.test.skip=true -Dmaven.repo.url=<JFROG_REPOSITORY_URL> -Dmaven.repo.username=$JFROG_USERNAME -Dmaven.repo.password=$JFROG_PASSWORD
+        mvn deploy -Dmaven.deploy.skip=true -Dmaven.test.skip=true -Dmaven.repo.url=http://52.54.111.101:8081/artifactory/webapp/#/home -Dmaven.repo.username=$JFROG_USERNAME -Dmaven.repo.password=$JFROG_PASSWORD
