@@ -64,5 +64,12 @@
     <dependencies>
 
     </dependencies>
+         <distributionManagement>
+    <snapshotRepository>
+        <id>snapshots</id>
+        <name>ip-172-31-8-85-snapshots</name>
+        <url>http://3.111.42.215:8081/artifactory/libs-snapshot-local</url>
+    </snapshotRepository>
+</distributionManagement>
 
 </project>
