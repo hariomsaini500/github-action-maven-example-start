@@ -22,5 +22,5 @@ jobs:
       - name: Publish JAR as artifact
         uses: actions/upload-artifact@v2
         with:
-          name: jar
-          path: target/your-jar-file.jar
+          name: result
+          path: result.txt
