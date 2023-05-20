@@ -22,5 +22,5 @@ jobs:
       - name: Publish JAR as artifact
         uses: actions/upload-artifact@v2
         with:
-          name: output
-          path: path/to/output
+          name: Run CI
+          path: ./run_ci.sh > ci_output.txt
