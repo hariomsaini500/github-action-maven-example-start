@@ -25,7 +25,9 @@ jobs:
       run: jfrog rt c my-server --url=http://3.111.42.215:8081/artifactory --access-token=$ARTIFACTORY_ACCESS_TOKEN
     - name: Ping Artifactory server
       run: jfrog rt ping
+    - name: List Artifactory local repositories
+      run: jfrog rt rpl
     - name: Upload artifact to Artifactory
-      run: jfrog rt u "target/*.jar" my-server/Jfrog-local-repo/
+      run: jfrog rt u "target/*.jar" my-server/Jfrog/
       env:
         ARTIFACTORY_ACCESS_TOKEN: ${{ secrets.ARTIFACTORY_ACCESS_TOKEN }}
