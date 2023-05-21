@@ -16,19 +16,25 @@ jobs:
     - name: Build with Maven
       run: mvn clean package
 
-    - name: Publish to JFrog Artifactory
-      uses: jfrog/setup-jfrog-cli@v2
+    - name: Jfrog push v2
+    - uses: jfrog/setup-jfrog-cli@v2
+      env:
+        JF_URL: http://3.111.42.215:8081/artifactory
+
+        JF_ACCESS_TOKEN: ${{ secrets.ARTIFACTORY_ACCESS_TOKEN }}
+    - run: |
+        jf rt u "target/github-action-maven-tutorial-1.0-SNAPSHOT.jar" "jfrog/github-action-maven-tutorial/1.0-SNAPSHOT/github-action-maven-tutorial-1.0-SNAPSHOT.jar"
     
         
     
-    - name: Configure Artifactory server
-      run: jfrog rt c my-server --url=http://3.111.42.215:8081/artifactory --access-token=$ARTIFACTORY_ACCESS_TOKEN
-    - name: Ping Artifactory server
-      run: jfrog rt ping
-    - name: List Artifactory local repositories
-      run: |
-       curl -H "X-JFrog-Art-Api:${{ secrets.ARTIFACTORY_ACCESS_TOKEN }}" -X GET "http://3.111.42.215:8081/artifactory/api/repositories?type=local"
-    - name: Upload artifact to Artifactory
-      run: jfrog rt u "target/github-action-maven-tutorial-1.0-SNAPSHOT.jar" "jfrog/github-action-maven-tutorial/1.0-SNAPSHOT/github-action-maven-tutorial-1.0-SNAPSHOT.jar"
-      env:
-        ARTIFACTORY_ACCESS_TOKEN: ${{ secrets.ARTIFACTORY_ACCESS_TOKEN }}
+    #- name: Configure Artifactory server
+   #   run: jfrog rt c my-server --url=http://3.111.42.215:8081/artifactory --access-token=$ARTIFACTORY_ACCESS_TOKEN
+    #- name: Ping Artifactory server
+     # run: jfrog rt ping
+    #- name: List Artifactory local repositories
+     # run: |
+      # curl -H "X-JFrog-Art-Api:${{ secrets.ARTIFACTORY_ACCESS_TOKEN }}" -X GET "http://3.111.42.215:8081/artifactory/api/repositories?type=local"
+    #- name: Upload artifact to Artifactory
+     # run: jfrog rt u "target/github-action-maven-tutorial-1.0-SNAPSHOT.jar" "jfrog/github-action-maven-tutorial/1.0-SNAPSHOT/github-action-maven-tutorial-1.0-SNAPSHOT.jar"
+     # env:
+      #  ARTIFACTORY_ACCESS_TOKEN: ${{ secrets.ARTIFACTORY_ACCESS_TOKEN }}
