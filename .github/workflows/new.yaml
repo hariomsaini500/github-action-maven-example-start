@@ -26,7 +26,8 @@ jobs:
     - name: Ping Artifactory server
       run: jfrog rt ping
     - name: List Artifactory local repositories
-      run: jfrog rt rpl
+      run: |
+       curl -H "X-JFrog-Art-Api:${{ secrets.ARTIFACTORY_ACCESS_TOKEN }}" -X GET "http://3.111.42.215:8081/artifactory/api/repositories?type=local"
     - name: Upload artifact to Artifactory
       run: jfrog rt u "target/*.jar" my-server/Jfrog/
       env:
