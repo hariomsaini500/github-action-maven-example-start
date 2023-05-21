@@ -14,5 +14,5 @@ jobs:
 
       - name: Push artifact to JFrog
         run: |
-          jfrog rt config --url=https://http://3.111.42.215:8081/artifactory/webapp/#/home/artifactory --user=admin --password=Harry@500
+          jfrog rt config --url=http://3.111.42.215:8081/artifactory/webapp/#/home/artifactory --user=admin --password=Harry@500
           jfrog rt u "http://3.111.42.215:8081/artifactory/webapp/#/artifacts/browse/tree/General/libs-release" "generic-local/http://3.111.42.215:8081/artifactory/webapp/#/artifacts/browse/tree/General/libs-snapshot-local"
