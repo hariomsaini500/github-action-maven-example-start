@@ -1,0 +1,18 @@
+name: Maven Build and Publish
+on:
+  workflow_dispatch: 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up JFrog CLI
+        run: |
+          curl -fL https://getcli.jfrog.io | sh
+
+      - name: Push artifact to JFrog
+        run: |
+          jfrog rt config --url=https://http://3.111.42.215:8081/artifactory/webapp/#/home/artifactory --user=admin --password=Harry@500
+          jfrog rt u "http://3.111.42.215:8081/artifactory/webapp/#/artifacts/browse/tree/General/libs-release" "generic-local/http://3.111.42.215:8081/artifactory/webapp/#/artifacts/browse/tree/General/libs-snapshot-local"
