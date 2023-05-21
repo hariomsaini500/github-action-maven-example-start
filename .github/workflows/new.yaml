@@ -18,8 +18,8 @@ jobs:
 
     - name: Publish to JFrog Artifactory
       uses: jfrog/setup-jfrog-cli@v1
-      with:
-        version: 'latest'
+    
+        
     
     - name: Configure Artifactory server
       run: jfrog rt c my-server --url=http://3.111.42.215:8081 --access-token=$ARTIFACTORY_ACCESS_TOKEN
