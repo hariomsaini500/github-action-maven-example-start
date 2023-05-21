@@ -29,5 +29,5 @@ jobs:
           ARTIFACTORY_USERNAME: ${{ secrets.JFROG_USERNAME }}
           ARTIFACTORY_PASSWORD: ${{ secrets.JFROG_PASSWORD }}
         run: |
-          ./jfrog rt config --url="$ARTIFACTORY_URL" --user="$ARTIFACTORY_USERNAME" --password="$ARTIFACTORY_PASSWORD" --interactive=false
+          ./jfrog rt config --url="$ARTIFACTORY_URL" --user="$JFROG_USERNAME" --password="$JFROG_PASSWORD" --interactive=false
           ./jfrog rt u "target/your-jar-file.jar" "libs-snapshot-local/http://3.111.42.215:8081/artifactory/webapp/#/artifacts/browse/tree/General/libs-snapshot-local"
