@@ -22,7 +22,7 @@ jobs:
         
     
     - name: Configure Artifactory server
-      run: jfrog rt c my-server --url=http://3.111.42.215:8081 --access-token=$ARTIFACTORY_ACCESS_TOKEN
+      run: jfrog rt c my-server --url=http://3.111.42.215:8081/artifactory --access-token=$ARTIFACTORY_ACCESS_TOKEN
     - name: Ping Artifactory server
       run: jfrog rt ping
     - name: Upload artifact to Artifactory
