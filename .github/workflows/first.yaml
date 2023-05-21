@@ -21,6 +21,6 @@ jobs:
       env:
         JF_URL: http://3.111.42.215:8081/artifactory
         JF_USER: admin
-        JF_PASSWORD: Harry@500
+        JF_PASSWORD: ${{ secrets.JFROG_PASSWORD }}
     - run: |
         jf rt u "target/github-action-maven-tutorial-1.0-SNAPSHOT.jar" "jfrog/github-action-maven-tutorial/1.0-SNAPSHOT/github-action-maven-tutorial-1.0-SNAPSHOT.jar"
