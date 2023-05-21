@@ -29,6 +29,6 @@ jobs:
       run: |
        curl -H "X-JFrog-Art-Api:${{ secrets.ARTIFACTORY_ACCESS_TOKEN }}" -X GET "http://3.111.42.215:8081/artifactory/api/repositories?type=local"
     - name: Upload artifact to Artifactory
-      run: jfrog rt u "target/*.jar" my-server/jfrog/
+      run: jfrog rt u "target/github-action-maven-tutorial-1.0-SNAPSHOT.jar" "jfrog/github-action-maven-tutorial/1.0-SNAPSHOT/github-action-maven-tutorial-1.0-SNAPSHOT.jar"
       env:
         ARTIFACTORY_ACCESS_TOKEN: ${{ secrets.ARTIFACTORY_ACCESS_TOKEN }}
