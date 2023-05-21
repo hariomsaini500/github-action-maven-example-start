@@ -30,4 +30,4 @@ jobs:
           ARTIFACTORY_PASSWORD: ${{ secrets.JFROG_PASSWORD }}
         run: |
           ./jfrog rt config --url="$ARTIFACTORY_URL" --user="$JFROG_USERNAME" --password="$JFROG_PASSWORD" --interactive=false
-          ./jfrog rt u ".github/workflows/file.jar" "libs-snapshot-local/http://3.111.42.215:8081/artifactory/webapp/#/artifacts/browse/tree/General/libs-snapshot-local"
+          ./jfrog rt u ".github/workflows/file.jar" " Jfrog-local-repo/http://3.111.42.215:8081/artifactory/webapp/#/artifacts/browse/tree/General/Jfrog-local-repo"
