@@ -13,7 +13,10 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 14
-
+        name: Install JFrog CLI
+        run: |
+          curl -fL https://getcli.jfrog.io | sh
+          sudo chmod +x ./jfrog
     - name: Build and Publish with Maven
       env:
         JFROG_USERNAME: ${{ secrets.JFROG_USERNAME }}
